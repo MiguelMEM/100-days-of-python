@@ -1,16 +1,24 @@
-# This is a sample Python script.
+import random
 
-# Press ⌃⇧⏎ to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+game_choices=['Rock', 'Paper', 'Scissors']
 
+user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors"))
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+computer_choice = random.randint(0,2)
 
+if user_choice >= 0 and user_choice <= 2:
+    print(game_choices[user_choice])
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+print("Computer choice:")
+print(game_choices[computer_choice])
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if user_choice >= 3 or user_choice < 0:
+    print("You typed an invalid number. You loose!")
+elif user_choice == 0 and computer_choice == 2:
+    print("You win!")
+elif computer_choice == 0 and user_choice == 2:
+    print("You loose!")
+elif user_choice < computer_choice:
+    print("You loose!")
+elif user_choice == computer_choice:
+    print("It's a draw!")
